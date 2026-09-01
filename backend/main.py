@@ -28,8 +28,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def root():
+@app.get("/api/health")
+def health_check():
     return {
         "status": "online",
         "app": "ProsperHigh Platform API v3",
