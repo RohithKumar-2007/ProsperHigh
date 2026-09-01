@@ -1,0 +1,344 @@
+{
+  "macro": {
+    "nifty50_trend": "BULLISH",
+    "nifty50_change_pct": 0.85,
+    "advancing_stocks": 1421,
+    "declining_stocks": 932,
+    "market_breadth": "Positive (+1.53 Ratio)",
+    "repo_rate": 6.50,
+    "cpi_inflation": 4.80,
+    "wpi_inflation": 2.10,
+    "gdp_growth": 7.20,
+    "usd_inr": 83.45,
+    "volatility_index_vix": 13.8,
+    "sector_status": {
+      "IT": "LEADING",
+      "Banking": "LEADING",
+      "Pharma": "NEUTRAL",
+      "FMCG": "NEUTRAL",
+      "Automotive": "NEUTRAL",
+      "Energy": "WEAKENING",
+      "Metals": "LAGGING",
+      "Telecom": "LEADING"
+    }
+  },
+  "stocks": {
+    "RELIANCE": {
+      "symbol": "RELIANCE",
+      "name": "Reliance Industries Ltd.",
+      "sector": "Energy",
+      "current_price": 2985.40,
+      "previous_close": 2962.10,
+      "52w_high": 3217.90,
+      "52w_low": 2220.30,
+      "market_cap_cr": 2019450,
+      "ohlcv_daily": [
+        {"date": "2026-08-25", "open": 2940.0, "high": 2965.0, "low": 2930.0, "close": 2955.0, "volume": 5200000},
+        {"date": "2026-08-26", "open": 2955.0, "high": 2975.0, "low": 2945.0, "close": 2968.0, "volume": 4800000},
+        {"date": "2026-08-27", "open": 2968.0, "high": 2980.0, "low": 2950.0, "close": 2952.0, "volume": 6100000},
+        {"date": "2026-08-28", "open": 2952.0, "high": 2970.0, "low": 2940.0, "close": 2962.1, "volume": 5900000},
+        {"date": "2026-09-01", "open": 2965.0, "high": 2995.0, "low": 2960.0, "close": 2985.4, "volume": 6800000}
+      ],
+      "technical_indicators": {
+        "rsi": 58.4,
+        "macd": 1.45,
+        "macd_signal": 0.82,
+        "macd_histogram": 0.63,
+        "sma20": 2940.2,
+        "sma50": 2895.5,
+        "sma200": 2720.0,
+        "ema20": 2951.0,
+        "bollinger_upper": 3020.0,
+        "bollinger_lower": 2860.0,
+        "atr": 42.5,
+        "support": 2920.0,
+        "resistance": 3050.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "HOLD",
+        "monthly_signal": "BUY"
+      }
+    },
+    "TCS": {
+      "symbol": "TCS",
+      "name": "Tata Consultancy Services Ltd.",
+      "sector": "IT",
+      "current_price": 4250.75,
+      "previous_close": 4210.00,
+      "52w_high": 4585.00,
+      "52w_low": 3315.00,
+      "market_cap_cr": 1538000,
+      "ohlcv_daily": [
+        {"date": "2026-08-25", "open": 4180.0, "high": 4220.0, "low": 4175.0, "close": 4210.0, "volume": 2100000},
+        {"date": "2026-09-01", "open": 4215.0, "high": 4265.0, "low": 4200.0, "close": 4250.75, "volume": 2900000}
+      ],
+      "technical_indicators": {
+        "rsi": 64.2,
+        "macd": 12.8,
+        "macd_signal": 9.4,
+        "macd_histogram": 3.4,
+        "sma20": 4180.0,
+        "sma50": 4090.0,
+        "sma200": 3880.0,
+        "ema20": 4205.0,
+        "bollinger_upper": 4310.0,
+        "bollinger_lower": 4050.0,
+        "atr": 52.0,
+        "support": 4150.0,
+        "resistance": 4350.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "BUY"
+      }
+    },
+    "INFY": {
+      "symbol": "INFY",
+      "name": "Infosys Ltd.",
+      "sector": "IT",
+      "current_price": 1895.30,
+      "previous_close": 1872.00,
+      "52w_high": 1980.00,
+      "52w_low": 1355.00,
+      "market_cap_cr": 786000,
+      "ohlcv_daily": [
+        {"date": "2026-08-25", "open": 1860.0, "high": 1885.0, "low": 1855.0, "close": 1872.0, "volume": 4100000},
+        {"date": "2026-09-01", "open": 1875.0, "high": 1905.0, "low": 1870.0, "close": 1895.3, "volume": 5200000}
+      ],
+      "technical_indicators": {
+        "rsi": 61.8,
+        "macd": 6.2,
+        "macd_signal": 4.1,
+        "macd_histogram": 2.1,
+        "sma20": 1850.0,
+        "sma50": 1810.0,
+        "sma200": 1640.0,
+        "ema20": 1865.0,
+        "bollinger_upper": 1920.0,
+        "bollinger_lower": 1780.0,
+        "atr": 28.0,
+        "support": 1840.0,
+        "resistance": 1930.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "HOLD"
+      }
+    },
+    "HDFCBANK": {
+      "symbol": "HDFCBANK",
+      "name": "HDFC Bank Ltd.",
+      "sector": "Banking",
+      "current_price": 1675.20,
+      "previous_close": 1660.00,
+      "52w_high": 1794.00,
+      "52w_low": 1363.00,
+      "market_cap_cr": 1275000,
+      "ohlcv_daily": [
+        {"date": "2026-08-25", "open": 1650.0, "high": 1670.0, "low": 1645.0, "close": 1660.0, "volume": 8500000},
+        {"date": "2026-09-01", "open": 1662.0, "high": 1682.0, "low": 1658.0, "close": 1675.2, "volume": 9100000}
+      ],
+      "technical_indicators": {
+        "rsi": 56.1,
+        "macd": 3.8,
+        "macd_signal": 2.9,
+        "macd_histogram": 0.9,
+        "sma20": 1645.0,
+        "sma50": 1620.0,
+        "sma200": 1540.0,
+        "ema20": 1652.0,
+        "bollinger_upper": 1700.0,
+        "bollinger_lower": 1590.0,
+        "atr": 22.0,
+        "support": 1630.0,
+        "resistance": 1720.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "BUY"
+      }
+    },
+    "ICICIBANK": {
+      "symbol": "ICICIBANK",
+      "name": "ICICI Bank Ltd.",
+      "sector": "Banking",
+      "current_price": 1240.50,
+      "previous_close": 1228.00,
+      "52w_high": 1265.00,
+      "52w_low": 898.00,
+      "market_cap_cr": 872000,
+      "ohlcv_daily": [
+        {"date": "2026-09-01", "open": 1230.0, "high": 1248.0, "low": 1225.0, "close": 1240.5, "volume": 6200000}
+      ],
+      "technical_indicators": {
+        "rsi": 63.5,
+        "macd": 5.1,
+        "macd_signal": 3.7,
+        "macd_histogram": 1.4,
+        "sma20": 1215.0,
+        "sma50": 1180.0,
+        "sma200": 1090.0,
+        "ema20": 1224.0,
+        "bollinger_upper": 1260.0,
+        "bollinger_lower": 1170.0,
+        "atr": 18.5,
+        "support": 1210.0,
+        "resistance": 1265.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "BUY"
+      }
+    },
+    "SBIN": {
+      "symbol": "SBIN",
+      "name": "State Bank of India",
+      "sector": "Banking",
+      "current_price": 845.30,
+      "previous_close": 838.00,
+      "52w_high": 912.00,
+      "52w_low": 555.00,
+      "market_cap_cr": 754000,
+      "ohlcv_daily": [
+        {"date": "2026-09-01", "open": 840.0, "high": 850.0, "low": 835.0, "close": 845.3, "volume": 11200000}
+      ],
+      "technical_indicators": {
+        "rsi": 54.2,
+        "macd": 1.8,
+        "macd_signal": 1.2,
+        "macd_histogram": 0.6,
+        "sma20": 835.0,
+        "sma50": 820.0,
+        "sma200": 740.0,
+        "ema20": 838.0,
+        "bollinger_upper": 865.0,
+        "bollinger_lower": 805.0,
+        "atr": 14.0,
+        "support": 820.0,
+        "resistance": 870.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "HOLD",
+        "monthly_signal": "BUY"
+      }
+    },
+    "ITC": {
+      "symbol": "ITC",
+      "name": "ITC Ltd.",
+      "sector": "FMCG",
+      "current_price": 495.60,
+      "previous_close": 491.00,
+      "52w_high": 522.00,
+      "52w_low": 399.00,
+      "market_cap_cr": 618000,
+      "ohlcv_daily": [
+        {"date": "2026-09-01", "open": 492.0, "high": 498.0, "low": 490.0, "close": 495.6, "volume": 7800000}
+      ],
+      "technical_indicators": {
+        "rsi": 57.0,
+        "macd": 0.95,
+        "macd_signal": 0.70,
+        "macd_histogram": 0.25,
+        "sma20": 488.0,
+        "sma50": 475.0,
+        "sma200": 450.0,
+        "ema20": 490.0,
+        "bollinger_upper": 508.0,
+        "bollinger_lower": 468.0,
+        "atr": 7.5,
+        "support": 480.0,
+        "resistance": 510.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "BUY"
+      }
+    },
+    "BHARTIARTL": {
+      "symbol": "BHARTIARTL",
+      "name": "Bharti Airtel Ltd.",
+      "sector": "Telecom",
+      "current_price": 1580.40,
+      "previous_close": 1560.00,
+      "52w_high": 1640.00,
+      "52w_low": 850.00,
+      "market_cap_cr": 920000,
+      "ohlcv_daily": [
+        {"date": "2026-09-01", "open": 1565.0, "high": 1592.0, "low": 1560.0, "close": 1580.4, "volume": 4900000}
+      ],
+      "technical_indicators": {
+        "rsi": 66.8,
+        "macd": 7.4,
+        "macd_signal": 5.1,
+        "macd_histogram": 2.3,
+        "sma20": 1530.0,
+        "sma50": 1470.0,
+        "sma200": 1240.0,
+        "ema20": 1545.0,
+        "bollinger_upper": 1610.0,
+        "bollinger_lower": 1450.0,
+        "atr": 24.0,
+        "support": 1520.0,
+        "resistance": 1620.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "BUY"
+      }
+    },
+    "SUNPHARMA": {
+      "symbol": "SUNPHARMA",
+      "name": "Sun Pharmaceutical Industries Ltd.",
+      "sector": "Pharma",
+      "current_price": 1740.00,
+      "previous_close": 1725.00,
+      "52w_high": 1810.00,
+      "52w_low": 1110.00,
+      "market_cap_cr": 417000,
+      "ohlcv_daily": [
+        {"date": "2026-09-01", "open": 1730.0, "high": 1752.0, "low": 1720.0, "close": 1740.0, "volume": 1800000}
+      ],
+      "technical_indicators": {
+        "rsi": 59.2,
+        "macd": 3.9,
+        "macd_signal": 2.8,
+        "macd_histogram": 1.1,
+        "sma20": 1710.0,
+        "sma50": 1660.0,
+        "sma200": 1480.0,
+        "ema20": 1722.0,
+        "bollinger_upper": 1780.0,
+        "bollinger_lower": 1640.0,
+        "atr": 26.0,
+        "support": 1690.0,
+        "resistance": 1790.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "BUY",
+        "monthly_signal": "BUY"
+      }
+    },
+    "TATAMOTORS": {
+      "symbol": "TATAMOTORS",
+      "name": "Tata Motors Ltd.",
+      "sector": "Automotive",
+      "current_price": 1085.20,
+      "previous_close": 1072.00,
+      "52w_high": 1179.00,
+      "52w_low": 593.00,
+      "market_cap_cr": 398000,
+      "ohlcv_daily": [
+        {"date": "2026-09-01", "open": 1075.0, "high": 1094.0, "low": 1068.0, "close": 1085.2, "volume": 8900000}
+      ],
+      "technical_indicators": {
+        "rsi": 55.4,
+        "macd": 2.2,
+        "macd_signal": 1.5,
+        "macd_histogram": 0.7,
+        "sma20": 1065.0,
+        "sma50": 1030.0,
+        "sma200": 920.0,
+        "ema20": 1070.0,
+        "bollinger_upper": 1120.0,
+        "bollinger_lower": 1010.0,
+        "atr": 21.0,
+        "support": 1040.0,
+        "resistance": 1130.0,
+        "daily_signal": "BUY",
+        "weekly_signal": "HOLD",
+        "monthly_signal": "BUY"
+      }
+    }
+  }
+}

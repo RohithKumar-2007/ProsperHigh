@@ -1,0 +1,114 @@
+{
+  "RELIANCE": {
+    "symbol": "RELIANCE",
+    "sentiment_trend": "DETERIORATING",
+    "net_sentiment_score": -0.42,
+    "flags": ["SENTIMENT_DETERIORATION"],
+    "trend_days": [
+      {"day": "Monday", "score": 0.72},
+      {"day": "Tuesday", "score": 0.51},
+      {"day": "Wednesday", "score": 0.19},
+      {"day": "Thursday", "score": -0.12},
+      {"day": "Friday", "score": -0.42}
+    ],
+    "articles": [
+      {
+        "id": "NEWS-REL-001",
+        "headline": "CCI initiates preliminary inquiry into Telecom Tariff adjustments and promotional plans",
+        "source": "Economic Times",
+        "source_quality": "High",
+        "date": "2026-08-30",
+        "category": "Regulation",
+        "finbert_score": -0.68,
+        "sentiment": "NEGATIVE",
+        "summary": "Competition Commission of India raises questions regarding recent tariff restructuring across telecom operators."
+      },
+      {
+        "id": "NEWS-REL-002",
+        "headline": "Refining Margins face temporary headwinds amidst global crude volatility",
+        "source": "Business Standard",
+        "source_quality": "High",
+        "date": "2026-08-28",
+        "category": "Earnings",
+        "finbert_score": -0.35,
+        "sentiment": "NEGATIVE",
+        "summary": "Gross Refining Margins (GRM) expected to remain under pressure for Q2 due to narrow Brent-Dubai spreads."
+      },
+      {
+        "id": "NEWS-REL-003",
+        "headline": "Jio Financial Services expands green energy financing footprint with new partnership",
+        "source": "Mint",
+        "source_quality": "High",
+        "date": "2026-08-25",
+        "category": "Acquisition",
+        "finbert_score": 0.62,
+        "sentiment": "POSITIVE",
+        "summary": "Strategic alliance formed to finance distributed solar and clean energy installations across tier-2 cities."
+      }
+    ]
+  },
+  "TCS": {
+    "symbol": "TCS",
+    "sentiment_trend": "IMPROVING",
+    "net_sentiment_score": 0.68,
+    "flags": [],
+    "trend_days": [
+      {"day": "Monday", "score": 0.40},
+      {"day": "Tuesday", "score": 0.52},
+      {"day": "Wednesday", "score": 0.60},
+      {"day": "Thursday", "score": 0.65},
+      {"day": "Friday", "score": 0.68}
+    ],
+    "articles": [
+      {
+        "id": "NEWS-TCS-001",
+        "headline": "TCS secures multi-billion dollar mega deal with European banking consortium for AI cloud transformation",
+        "source": "Reuters",
+        "source_quality": "Highest",
+        "date": "2026-08-31",
+        "category": "Earnings",
+        "finbert_score": 0.85,
+        "sentiment": "POSITIVE",
+        "summary": "10-year digital infrastructure modernization contract awarded to TCS, boosting TCV order book."
+      }
+    ]
+  },
+  "INFY": {
+    "symbol": "INFY",
+    "sentiment_trend": "STABLE",
+    "net_sentiment_score": 0.55,
+    "flags": [],
+    "articles": [
+      {
+        "id": "NEWS-INFY-001",
+        "headline": "Infosys expands Generative AI alliance with global enterprise leaders",
+        "source": "Bloomberg",
+        "source_quality": "Highest",
+        "date": "2026-08-29",
+        "category": "Product",
+        "finbert_score": 0.70,
+        "sentiment": "POSITIVE",
+        "summary": "Infosys Topaz platform sees 40% quarter-on-quarter client onboarding acceleration."
+      }
+    ]
+  },
+  "HDFCBANK": {
+    "symbol": "HDFCBANK",
+    "sentiment_trend": "IMPROVING",
+    "net_sentiment_score": 0.62,
+    "flags": [],
+    "articles": [
+      {
+        "id": "NEWS-HDFC-001",
+        "headline": "RBI approves new branch expansion push for HDFC Bank in semi-urban belts",
+        "source": "Financial Express",
+        "source_quality": "High",
+        "date": "2026-08-30",
+        "category": "Regulation",
+        "finbert_score": 0.74,
+        "sentiment": "POSITIVE",
+        "summary": "Credit growth expected to maintain 18%+ momentum following merger integration completion."
+      }
+    ]
+  }
+}

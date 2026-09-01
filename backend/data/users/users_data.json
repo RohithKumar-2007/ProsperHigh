@@ -1,0 +1,177 @@
+{
+  "users": {
+    "U001": {
+      "user_id": "U001",
+      "name": "Rahul Sharma (User A)",
+      "risk_profile": "Conservative",
+      "investment_horizon": "Medium-Term",
+      "investment_goal": "Preserve Wealth",
+      "total_portfolio_value": 2500000,
+      "holdings": [
+        {
+          "symbol": "RELIANCE",
+          "name": "Reliance Industries Ltd.",
+          "sector": "Energy",
+          "quantity": 225,
+          "average_price": 2850.00,
+          "current_value": 671715,
+          "portfolio_weight_pct": 26.87
+        },
+        {
+          "symbol": "ONGC",
+          "name": "Oil & Natural Gas Corp",
+          "sector": "Energy",
+          "quantity": 800,
+          "average_price": 240.00,
+          "current_value": 203200,
+          "portfolio_weight_pct": 8.13
+        },
+        {
+          "symbol": "HDFCBANK",
+          "name": "HDFC Bank Ltd.",
+          "sector": "Banking",
+          "quantity": 300,
+          "average_price": 1600.00,
+          "current_value": 502560,
+          "portfolio_weight_pct": 20.10
+        },
+        {
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services",
+          "sector": "IT",
+          "quantity": 100,
+          "average_price": 4100.00,
+          "current_value": 425075,
+          "portfolio_weight_pct": 17.00
+        },
+        {
+          "symbol": "CASH",
+          "name": "Cash & Liquid Debt",
+          "sector": "Cash",
+          "quantity": 1,
+          "average_price": 697450.00,
+          "current_value": 697450,
+          "portfolio_weight_pct": 27.90
+        }
+      ],
+      "sector_exposure": {
+        "Energy": 35.0,
+        "Banking": 20.1,
+        "IT": 17.0,
+        "Cash": 27.9
+      }
+    },
+    "U002": {
+      "user_id": "U002",
+      "name": "Priya Patel (User B)",
+      "risk_profile": "Aggressive",
+      "investment_horizon": "Long-Term",
+      "investment_goal": "Capital Appreciation",
+      "total_portfolio_value": 3000000,
+      "holdings": [
+        {
+          "symbol": "TCS",
+          "name": "Tata Consultancy Services",
+          "sector": "IT",
+          "quantity": 110,
+          "average_price": 4050.00,
+          "current_value": 467582,
+          "portfolio_weight_pct": 15.58
+        },
+        {
+          "symbol": "INFY",
+          "name": "Infosys Ltd.",
+          "sector": "IT",
+          "quantity": 200,
+          "average_price": 1800.00,
+          "current_value": 379060,
+          "portfolio_weight_pct": 12.63
+        },
+        {
+          "symbol": "HDFCBANK",
+          "name": "HDFC Bank Ltd.",
+          "sector": "Banking",
+          "quantity": 180,
+          "average_price": 1620.00,
+          "current_value": 301536,
+          "portfolio_weight_pct": 10.05
+        },
+        {
+          "symbol": "RELIANCE",
+          "name": "Reliance Industries Ltd.",
+          "sector": "Energy",
+          "quantity": 30,
+          "average_price": 2900.00,
+          "current_value": 89562,
+          "portfolio_weight_pct": 2.98
+        },
+        {
+          "symbol": "BHARTIARTL",
+          "name": "Bharti Airtel Ltd.",
+          "sector": "Telecom",
+          "quantity": 200,
+          "average_price": 1500.00,
+          "current_value": 316080,
+          "portfolio_weight_pct": 10.53
+        },
+        {
+          "symbol": "CASH",
+          "name": "Cash / Liquid Debt",
+          "sector": "Cash",
+          "quantity": 1,
+          "average_price": 1446180.00,
+          "current_value": 1446180,
+          "portfolio_weight_pct": 48.23
+        }
+      ],
+      "sector_exposure": {
+        "IT": 28.21,
+        "Banking": 10.05,
+        "Telecom": 10.53,
+        "Energy": 2.98,
+        "Cash": 48.23
+      }
+    },
+    "U003": {
+      "user_id": "U003",
+      "name": "Amit Verma (User C)",
+      "risk_profile": "Moderate",
+      "investment_horizon": "Short-Term",
+      "investment_goal": "Balanced Growth",
+      "total_portfolio_value": 1800000,
+      "holdings": [
+        {
+          "symbol": "HDFCBANK",
+          "name": "HDFC Bank Ltd.",
+          "sector": "Banking",
+          "quantity": 215,
+          "average_price": 1650.00,
+          "current_value": 360168,
+          "portfolio_weight_pct": 20.01
+        },
+        {
+          "symbol": "ICICIBANK",
+          "name": "ICICI Bank Ltd.",
+          "sector": "Banking",
+          "quantity": 217,
+          "average_price": 1200.00,
+          "current_value": 269188,
+          "portfolio_weight_pct": 14.95
+        },
+        {
+          "symbol": "CASH",
+          "name": "Cash",
+          "sector": "Cash",
+          "quantity": 1,
+          "average_price": 1170644.00,
+          "current_value": 1170644,
+          "portfolio_weight_pct": 65.04
+        }
+      ],
+      "sector_exposure": {
+        "Banking": 34.96,
+        "Cash": 65.04
+      }
+    }
+  }
+}

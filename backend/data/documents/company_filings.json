@@ -1,0 +1,76 @@
+{
+  "documents": [
+    {
+      "id": "DOC-REL-FY26-AR-001",
+      "company": "RELIANCE",
+      "document_name": "Annual Report FY2025-26",
+      "document_type": "Annual Report",
+      "year": "2026",
+      "page": 42,
+      "section": "Risk Factors & Regulatory Environment",
+      "title": "Regulatory Oversight & Energy Transition Capital Allocation",
+      "content": "Regulatory scrutiny surrounding telecom tariff hikes and carbon compliance policies under the National Green Hydrogen Mission has increased. Capex allocation for Phase 2 Gigafactories remains on schedule with ₹75,000 Crore total commitments.",
+      "citation": "Annual Report FY26, Page 42, Section: Risk Factors"
+    },
+    {
+      "id": "DOC-REL-FY26-AR-002",
+      "company": "RELIANCE",
+      "document_name": "Annual Report FY2025-26",
+      "document_type": "Annual Report",
+      "year": "2026",
+      "page": 78,
+      "section": "Financial Highlights & Cash Flow Analysis",
+      "title": "Working Capital & Free Cash Flow Dynamics",
+      "content": "Operating cash flow conversion moderated to 69% of EBITDA due to inventory buildup in retail operations and front-loaded capital expenditures in 5G network densification. Net debt to EBITDA stands comfortable at 0.72x.",
+      "citation": "Annual Report FY26, Page 78, Section: Financial Highlights"
+    },
+    {
+      "id": "DOC-REL-FY26-Q1-001",
+      "company": "RELIANCE",
+      "document_name": "Q1 FY26 Investor Presentation",
+      "document_type": "Investor Presentation",
+      "year": "2026",
+      "page": 14,
+      "section": "Jio Platforms Performance",
+      "title": "ARPU Growth and Subscriber Metrics",
+      "content": "Average Revenue Per User (ARPU) increased to ₹181.7/month, driven by 5G user migrations. Total subscriber base reached 481 million with data consumption per user averaging 28.4 GB/month.",
+      "citation": "Q1 FY26 Presentation, Page 14, Section: Jio Platforms"
+    },
+    {
+      "id": "DOC-TCS-FY26-AR-001",
+      "company": "TCS",
+      "document_name": "Annual Report FY2025-26",
+      "document_type": "Annual Report",
+      "year": "2026",
+      "page": 24,
+      "section": "Strategic Overview & AI Delivery",
+      "title": "Enterprise AI Transformation & Order Book",
+      "content": "TCS AI Cloud Unit crossed $1.5 Billion annual TCV run rate. Key partnerships with major hyperscalers accelerated delivery across banking, healthcare, and retail verticals.",
+      "citation": "Annual Report FY26, Page 24, Section: Strategic Overview"
+    },
+    {
+      "id": "DOC-INFY-FY26-AR-001",
+      "company": "INFY",
+      "document_name": "Annual Report FY2025-26",
+      "document_type": "Annual Report",
+      "year": "2026",
+      "page": 31,
+      "section": "Management Discussion & Analysis",
+      "title": "Digital Services Growth & Margin Resilience",
+      "content": "Operating margins held resilient at 20.8% despite wage hikes and discretionary spending moderation. Cloud transformation projects accounted for 58% of total revenues.",
+      "citation": "Annual Report FY26, Page 31, Section: Management Discussion"
+    },
+    {
+      "id": "DOC-HDFC-FY26-AR-001",
+      "company": "HDFCBANK",
+      "document_name": "Annual Report FY2025-26",
+      "document_type": "Annual Report",
+      "year": "2026",
+      "page": 55,
+      "section": "Credit Risk & Asset Quality",
+      "title": "NPA Metrics & Deposit Mobilization",
+      "content": "Gross NPA improved to 1.24% while Net NPA settled at 0.33%. Deposit growth outpaced credit growth at 19.4% YoY following post-merger branch optimization.",
+      "citation": "Annual Report FY26, Page 55, Section: Credit Risk"
+    }
+  ]
+}
