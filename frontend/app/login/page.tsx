@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/api";
 import { setStoredUser } from "@/lib/auth";
 import { Shield, ArrowRight, Lock, Mail, AlertCircle, RefreshCw } from "lucide-react";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,22 +16,22 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    if (!email || !password) {
+    if (!email.trim() || !password.trim()) {
       setError("Please enter your email and password.");
       return;
     }
 
     setLoading(true);
     try {
-      const res = await loginUser(email, password);
+      const res = await loginUser(email.trim(), password);
       if (res.success && res.user) {
         setStoredUser(res.user);
-        router.push("/");
+        window.location.href = "/";
       } else {
         setError(res.error || "Invalid login credentials");
       }
     } catch (err: any) {
-      setError(err.message || "Could not connect to authentication server");
+      setError(err.message || "Could not complete login");
     } finally {
       setLoading(false);
     }
@@ -66,7 +64,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="rohith@example.com"
+                placeholder="name@example.com"
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs text-charcoal focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>

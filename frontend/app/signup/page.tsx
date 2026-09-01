@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { registerUser } from "@/lib/api";
 import { setStoredUser } from "@/lib/auth";
 import { Shield, ArrowRight, Lock, Mail, User, AlertCircle, RefreshCw } from "lucide-react";
 
 export default function SignupPage() {
-  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +18,7 @@ export default function SignupPage() {
     e.preventDefault();
     setError("");
 
-    if (!name || !email || !password) {
+    if (!name.trim() || !email.trim() || !password.trim()) {
       setError("Please fill in all required fields.");
       return;
     }
@@ -31,15 +29,15 @@ export default function SignupPage() {
 
     setLoading(true);
     try {
-      const res = await registerUser(name, email, password);
+      const res = await registerUser(name.trim(), email.trim(), password);
       if (res.success && res.user) {
         setStoredUser(res.user);
-        router.push("/onboarding");
+        window.location.href = "/onboarding";
       } else {
         setError(res.error || "Registration failed");
       }
     } catch (err: any) {
-      setError(err.message || "Could not connect to server");
+      setError(err.message || "Could not complete registration");
     } finally {
       setLoading(false);
     }
@@ -72,7 +70,7 @@ export default function SignupPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Rohith Kumar"
+                placeholder="Enter your full name"
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs text-charcoal focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -86,7 +84,7 @@ export default function SignupPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="rohith@example.com"
+                placeholder="name@example.com"
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs text-charcoal focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
