@@ -1,31 +1,107 @@
-# 🚀 ProsperHigh — Explainable Multi-Agent Investment Intelligence Platform
+# ProsperHigh
 
-ProsperHigh is a personalized AI-powered financial intelligence system that evaluates stock investments based on **your specific financial profile, risk tolerance, goals, and portfolio holdings**.
+**Explainable multi-agent investment intelligence platform.**
+Understand your investments. Understand why.
 
----
-
-## 🌟 Key Features
-
-- **Zero Predefined / Fake Data**: All portfolio analytics, returns, and health scores (0-100) are dynamically calculated using deterministic financial formulas.
-- **Provider Adapter Architecture**: Search and analyze ANY stock symbol across NSE/BSE and global markets (`TATAMOTORS`, `RELIANCE`, `TCS`, `INFY`, `HDFCBANK`, `ICICIBANK`, etc.).
-- **10-Step Investor Profile & Financial Context Wizard**: Calculates a dynamic **Risk Score (0-100)** and risk profile category based on investment capacity, monthly contribution, emergency savings, goals, horizon, and drawdown reaction scenarios.
-- **7-Agent Intelligence System**: Independent evaluation by Market, Technical, Fundamental, News (FinBERT), Regulatory (RAG), Risk, and Synthesis Agents.
-- **Progressive Disclosure UI Workspace**: Clean recommendation badge (`SUITABLE`, `SUITABLE WITH CAUTION`, `UNSUITABLE / HIGH RISK`) with expandable agent reasoning breakdown, visual conflict bar, counterfactuals, thesis invalidation, and stock switcher.
-- **Citation-Backed RAG Research**: Natural language query over annual reports and filings with verifiable document and page citations.
-- **Interactive 6-Step Guided Tour**: Contextual tour guiding the user step-by-step through the platform.
+ProsperHigh evaluates stocks against *your* financial profile, risk tolerance, goals, and holdings — then explains the recommendation in plain language, backed by citations, instead of handing you a black-box signal.
 
 ---
 
-## 🛠️ Tech Stack
+## What it does
 
-- **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS, Recharts, Lucide Icons
-- **Backend**: FastAPI (Python), SQLite Database, Analytics Formulas Engine, Multi-Agent Orchestrator
-- **AI Router**: Gemini Flash / Groq / Local Ollama (`qwen3:8b`) with rule-based fallback
+- **7 independent agents** — Market, Technical, Fundamental, News, Regulatory (RAG), Risk, and Synthesis — each score a stock and show their reasoning.
+- **Personalized verdicts** — `SUITABLE`, `SUITABLE WITH CAUTION`, or `UNSUITABLE / HIGH RISK`, based on a 10-step onboarding profile (risk score, capacity, goals, horizon).
+- **No fake data** — portfolio metrics and health scores are computed live with deterministic formulas.
+- **Any stock, NSE/BSE or global** — via a pluggable market data provider.
+- **RAG research terminal** — ask questions over filings/annual reports, get answers with document + page citations.
+- **Full transparency UI** — agent-by-agent breakdown, conflict view, counterfactuals, thesis-invalidation triggers.
 
----
+## How it works
 
-## 🚦 Local 1-Click Launch
+```
+User profile + holdings
+          │
+          ▼
+     Orchestrator
+          │
+ ┌────┬───┼───┬────┬────┐
+Market Tech Fund News Reg Risk   ← 6 agents score independently
+ └────┴───┼───┴────┴────┘
+          ▼
+   Synthesis Agent
+  (net score, conflicts, verdict)
+          │
+          ▼
+   Personalized recommendation
+```
 
-1. Double-click `run_all.cmd` or run:
-   - **Frontend App**: `http://localhost:3000`
-   - **FastAPI REST API**: `http://127.0.0.1:8000`
+## Tech stack
+
+- **Frontend:** Next.js 14 (App Router), TypeScript, Tailwind CSS, Recharts
+- **Backend:** FastAPI, SQLite, deterministic analytics engine
+- **AI:** Gemini / Groq / local Ollama (`qwen3:8b`), with rule-based fallback
+
+## Project structure
+
+```
+backend/
+  main.py            FastAPI app & routes
+  config.py          LLM router, thresholds, banned phrases
+  agents/            The 7 analysis agents
+  orchestrator/       Coordinates agents + synthesis
+  services/          Auth, profiling, analytics, RAG, market data
+  database/          SQLite models
+  data/              Seed data (users, market, fundamentals, news, docs)
+frontend/
+  app/               Pages: login, onboarding, portfolio, analyze, research
+  components/        Agent board, decision cards, conflict/counterfactual UI
+```
+
+## Getting started
+
+**Requirements:** Python 3.10+, Node.js 18+, pnpm
+
+```bash
+# Backend
+pip install fastapi uvicorn pydantic
+uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
+
+# Frontend (new terminal)
+cd frontend
+pnpm install
+pnpm dev
+```
+
+- API → `http://127.0.0.1:8000` (docs at `/docs`)
+- App → `http://localhost:3000`
+
+On Windows, double-click `run_all.cmd` to launch both at once.
+
+## API reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/auth/register` | Register a user |
+| POST | `/api/auth/login` | Log in |
+| GET | `/api/profile/{user_id}` | Get investor & financial profile |
+| POST | `/api/profile/onboarding` | Save onboarding wizard results |
+| GET | `/api/portfolio/{user_id}` | Get computed portfolio metrics |
+| POST | `/api/portfolio/holding` | Add a holding |
+| DELETE | `/api/portfolio/holding/{user_id}/{holding_id}` | Remove a holding |
+| GET | `/api/stocks/search?q=` | Search for a stock symbol |
+| POST | `/api/analyze` | Run the 7-agent analysis on a stock |
+| POST | `/api/research/ask` | Ask a question over filings (RAG) |
+
+## Configuration
+
+Set in `backend/config.py` or as env vars: `PRIMARY_LLM_PROVIDER`, `SECONDARY_LLM_PROVIDER`, `FALLBACK_LLM_PROVIDER`, `GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENROUTER_API_KEY`.
+
+For the frontend, set `NEXT_PUBLIC_API_URL` to your backend URL.
+
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for deploying the frontend to Vercel and the backend to Render, Railway, or Koyeb.
+
+## Disclaimer
+
+ProsperHigh is an educational tool, not financial advice. Recommendations are generated by automated agents and may be incomplete or wrong. Do your own research and consult a licensed advisor before investing.
