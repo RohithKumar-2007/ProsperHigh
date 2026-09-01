@@ -1,4 +1,4 @@
-import { getStoredUser, setStoredUser, getOrCreateUserSession } from "./auth";
+import { getStoredUser, setStoredUser } from "./auth";
 
 export const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 const LOCAL_PROFILE_KEY = "prosperhigh_local_profile";
@@ -56,7 +56,7 @@ export async function loginUser(email: string, pass: string): Promise<{ success:
   const formattedName = email.split("@")[0].replace(/[._]/g, " ").replace(/\b\w/g, c => c.toUpperCase());
   const user = {
     id: existing?.id || `USR-${Date.now().toString(36).toUpperCase()}`,
-    name: formattedName || "Investor",
+    name: formattedName || "User",
     email: email,
     token: `PH-TOKEN-${Date.now()}`,
     hasCompletedOnboarding: existing?.hasCompletedOnboarding || false
@@ -74,11 +74,7 @@ function getLocalHoldings(): any[] {
     const raw = localStorage.getItem(LOCAL_HOLDINGS_KEY);
     if (raw) return JSON.parse(raw);
   } catch (e) {}
-  return [
-    { id: 1, symbol: "TATAMOTORS", name: "Tata Motors Ltd.", sector: "Automobile", quantity: 50, average_price: 850.0, current_price: 985.6 },
-    { id: 2, symbol: "INFY", name: "Infosys Ltd.", sector: "IT", quantity: 30, average_price: 1750.0, current_price: 1895.3 },
-    { id: 3, symbol: "HDFCBANK", name: "HDFC Bank Ltd.", sector: "Banking", quantity: 40, average_price: 1580.0, current_price: 1675.2 }
-  ];
+  return [];
 }
 
 function setLocalHoldings(holdings: any[]) {
@@ -172,7 +168,18 @@ function round(val: number, decimals: number) {
 // ONBOARDING & PROFILE API
 // ----------------------------------------------------
 export async function saveOnboardingProfile(profileData: any) {
-  const user = getOrCreateUserSession();
+  let user = getStoredUser();
+  if (!user) {
+    user = {
+      id: `USR-${Date.now().toString(36).toUpperCase()}`,
+      name: profileData.name || "Investor",
+      email: profileData.email || "user@prosperhigh.com",
+      token: `PH-TOKEN-${Date.now()}`,
+      hasCompletedOnboarding: true
+    };
+    setStoredUser(user);
+  }
+
   const userId = user.id;
 
   if (profileData.holdings && profileData.holdings.length > 0) {
@@ -185,8 +192,6 @@ export async function saveOnboardingProfile(profileData: any) {
       sector: "General"
     }));
     setLocalHoldings(processed);
-  } else {
-    setLocalHoldings(getLocalHoldings());
   }
 
   if (typeof window !== "undefined") {
@@ -216,7 +221,8 @@ export async function saveOnboardingProfile(profileData: any) {
 
 export async function getProfile(userId?: string) {
   const user = getStoredUser();
-  const uid = userId || user?.id || "U001";
+  if (!user) return null;
+  const uid = userId || user.id;
 
   let localProf: any = null;
   if (typeof window !== "undefined") {
@@ -237,7 +243,7 @@ export async function getProfile(userId?: string) {
 
   return {
     user_id: uid,
-    onboarding_completed: user?.hasCompletedOnboarding || localProf?.onboarding_completed || false,
+    onboarding_completed: user.hasCompletedOnboarding || localProf?.onboarding_completed || false,
     risk_score: localProf?.profile?.volatility_comfort || 62,
     risk_category: "Balanced Growth",
     experience_level: localProf?.profile?.experience_level || "Active Investor",
@@ -252,7 +258,8 @@ export async function getProfile(userId?: string) {
 // ----------------------------------------------------
 export async function getPortfolio(userId?: string) {
   const user = getStoredUser();
-  const uid = userId || user?.id || "U001";
+  if (!user) return null;
+  const uid = userId || user.id;
 
   try {
     const res = await fetch(`${API_BASE}/api/portfolio/${uid}`);
@@ -270,7 +277,8 @@ export async function getPortfolio(userId?: string) {
 }
 
 export async function addHolding(symbol: string, quantity: number, price: number) {
-  const user = getOrCreateUserSession();
+  const user = getStoredUser();
+  if (!user) return null;
   const uid = user.id;
 
   const currentLocal = getLocalHoldings();
@@ -312,7 +320,8 @@ export async function addHolding(symbol: string, quantity: number, price: number
 }
 
 export async function deleteHolding(holdingId: number) {
-  const user = getOrCreateUserSession();
+  const user = getStoredUser();
+  if (!user) return null;
   const uid = user.id;
 
   const currentLocal = getLocalHoldings();
@@ -347,7 +356,7 @@ export async function getLiveTicker() {
 }
 
 export async function analyzeStock(symbol: string, userId?: string) {
-  const uid = userId || getStoredUser()?.id || "U001";
+  const uid = userId || getStoredUser()?.id || "USR-GUEST";
   try {
     const res = await fetch(`${API_BASE}/api/analyze`, {
       method: "POST",

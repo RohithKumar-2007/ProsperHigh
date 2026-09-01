@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { getStoredUser, getOrCreateUserSession, UserSession } from "@/lib/auth";
+import { getStoredUser, UserSession } from "@/lib/auth";
 import { getPortfolio, getProfile } from "@/lib/api";
 import {
   TrendingUp,
@@ -37,16 +37,17 @@ export default function HomePageV3() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let u = getStoredUser();
-    if (!u) {
-      u = getOrCreateUserSession();
-    }
+    const u = getStoredUser();
     setUser(u);
-    Promise.all([getPortfolio(u.id), getProfile(u.id)]).then(([portRes, profRes]) => {
-      setPortfolio(portRes);
-      setProfile(profRes);
+    if (u) {
+      Promise.all([getPortfolio(u.id), getProfile(u.id)]).then(([portRes, profRes]) => {
+        setPortfolio(portRes);
+        setProfile(profRes);
+        setLoading(false);
+      });
+    } else {
       setLoading(false);
-    });
+    }
 
     const handleAuth = () => {
       const updated = getStoredUser();
@@ -57,11 +58,9 @@ export default function HomePageV3() {
     return () => window.removeEventListener("auth-changed", handleAuth);
   }, []);
 
-  // Check if profile is completed either from backend or local session
   const hasLocalProfile = typeof window !== "undefined" && localStorage.getItem("prosperhigh_local_profile") !== null;
   const isProfileComplete = profile?.onboarding_completed || user?.hasCompletedOnboarding || hasLocalProfile;
 
-  // Performance Chart Mock Time-Series
   const perfData = [
     { date: "Jan", value: portfolio?.total_invested_amount || 100000 },
     { date: "Feb", value: (portfolio?.total_invested_amount || 100000) * 1.02 },
@@ -211,7 +210,7 @@ export default function HomePageV3() {
         <div className="prosper-card p-5">
           <div className="text-xs font-semibold text-slate-500 uppercase">Total Portfolio Value</div>
           <div className="text-2xl font-black text-charcoal font-manrope mt-1">
-            ₹{portfolio?.total_portfolio_value ? portfolio.total_portfolio_value.toLocaleString("en-IN") : "12,48,500"}
+            ₹{portfolio?.total_portfolio_value ? portfolio.total_portfolio_value.toLocaleString("en-IN") : "0"}
           </div>
           <div className="text-xs text-positive font-semibold mt-1 flex items-center space-x-1">
             <TrendingUp className="w-3.5 h-3.5" />
@@ -222,10 +221,10 @@ export default function HomePageV3() {
         <div className="prosper-card p-5">
           <div className="text-xs font-semibold text-slate-500 uppercase">Overall Return %</div>
           <div className={`text-2xl font-black font-manrope mt-1 ${portfolio?.return_percentage >= 0 ? "text-positive" : "text-negative"}`}>
-            {portfolio?.return_percentage >= 0 ? "+" : ""}{portfolio?.return_percentage || 12.48}%
+            {portfolio?.return_percentage >= 0 ? "+" : ""}{portfolio?.return_percentage || 0}%
           </div>
           <div className="text-xs text-slate-500 mt-1">
-            P&L: ₹{portfolio?.profit_loss ? portfolio.profit_loss.toLocaleString("en-IN") : "1,38,500"}
+            P&L: ₹{portfolio?.profit_loss ? portfolio.profit_loss.toLocaleString("en-IN") : "0"}
           </div>
         </div>
 
@@ -257,7 +256,7 @@ export default function HomePageV3() {
           <span>✦ ProsperHigh Daily Intelligence Briefing</span>
         </div>
         <h3 className="text-lg font-bold font-manrope mb-3">
-          Good morning, {user.name}. Here are the 3 key insights for your portfolio today:
+          Good morning, {user.name}. Here are the key insights for your portfolio today:
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
           <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
@@ -266,7 +265,7 @@ export default function HomePageV3() {
           </div>
           <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
             <span className="font-bold text-emerald-400">2. Sector Allocation</span>
-            <p className="text-slate-300 mt-1">Holdings distributed across {portfolio?.sector_exposure ? Object.keys(portfolio.sector_exposure).length : 3} unique sectors.</p>
+            <p className="text-slate-300 mt-1">Holdings distributed across {portfolio?.sector_exposure ? Object.keys(portfolio.sector_exposure).length : 0} unique sectors.</p>
           </div>
           <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
             <span className="font-bold text-amber-400">3. Risk Alignment</span>
@@ -281,7 +280,7 @@ export default function HomePageV3() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h3 className="text-base font-bold text-charcoal font-manrope">Calculated Portfolio Trajectory</h3>
-              <p className="text-xs text-slate-500">Formulas calculated from your {portfolio?.holdings_count || 3} active holdings.</p>
+              <p className="text-xs text-slate-500">Formulas calculated from your {portfolio?.holdings_count || 0} active holdings.</p>
             </div>
           </div>
 

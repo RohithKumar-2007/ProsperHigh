@@ -24,22 +24,6 @@ export function setStoredUser(user: UserSession): void {
   window.dispatchEvent(new Event("auth-changed"));
 }
 
-export function getOrCreateUserSession(): UserSession {
-  let u = getStoredUser();
-  if (!u) {
-    // Generate a fresh clean guest session if needed, but do NOT force hardcoded name
-    u = {
-      id: `USR-${Date.now()}`,
-      name: "Investor",
-      email: "investor@prosperhigh.com",
-      token: `PH-TOKEN-${Date.now()}`,
-      hasCompletedOnboarding: false
-    };
-    setStoredUser(u);
-  }
-  return u;
-}
-
 export function clearStoredUser(): void {
   if (typeof window === "undefined") return;
   localStorage.removeItem(AUTH_KEY);

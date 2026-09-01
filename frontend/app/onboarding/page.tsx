@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { saveOnboardingProfile } from "@/lib/api";
-import { getStoredUser, getOrCreateUserSession } from "@/lib/auth";
+import { getStoredUser } from "@/lib/auth";
 import { Shield, CheckCircle2, ArrowRight, ArrowLeft, RefreshCw, AlertTriangle, Sparkles, Building } from "lucide-react";
 
 export default function OnboardingWizardPageV3() {
@@ -71,8 +71,8 @@ export default function OnboardingWizardPageV3() {
 
   const handleFinish = async () => {
     setSaving(true);
-    const user = getOrCreateUserSession();
-    const userId = user.id;
+    const user = getStoredUser();
+    const userId = user?.id || `USR-${Date.now().toString(36).toUpperCase()}`;
     try {
       await saveOnboardingProfile({
         user_id: userId,
